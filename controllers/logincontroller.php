@@ -1,26 +1,21 @@
 <?php
+namespace controllers;
+
+use models\Usuario;
 
 
-require_once 'UsuarioController.php';
 
+class LoginController
+{
+    public function autenticar($email, $senha)
+    {
+        $usuario = new Usuario();
+        $usuario->verificaLogin($email, $senha);
+    }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'],$_POST['nome'],$_POST['senha'])) {
-
-$email = $_POST['email'];
-$nome = $_POST['nome'];
-$senha = $_POST['senha'];
-
-
-$resut = new UsuarioController;
-$resut ->registrarUsuario($email,$nome,$senha);
-
-}elseif($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'],$_POST['senha'])) {
-
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-
-
-$resut = new UsuarioController;
-$resut ->verificaLogin($email,$senha);
-
+    public function registrar($email, $nome, $senha)
+    {
+        $usuario = new Usuario();
+        $usuario->registrarUsuario($email, $nome, $senha);
+    }
 }

@@ -1,18 +1,23 @@
 <?php 
-session_start() ;
+
+    session_start();
 
 
-if (!isset($_SESSION['usuario'])) {
+        if (!isset($_SESSION['usuario'])) 
+        {
 
-    echo    "<script>
+            echo 
 
-    alert('Faça login!');
-    window.location.href = '?rota=login';
+            "<script>
 
-    
+            alert('Faça login!');
+            window.location.href = '?rota=login';
+
             </script>";
-          exit;
-} ?>
+            exit;
+        } 
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,20 +28,14 @@ if (!isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/public/imagens/Favicon.ico" type="image/x-icon">
     <title>R3-Login</title>
-
-  
-
-</head>
-    <body>
-      
-
  
-            
+</head>
+
+    <body>
+           
           <div class="content2">
 
              <h1 class="h1"><?php echo "Bem-vindo, " . $_SESSION['usuario']['nome']; ?></h1>
-
-        
 
                 <div class="botao-logout-div">
 
